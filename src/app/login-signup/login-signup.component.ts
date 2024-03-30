@@ -27,9 +27,13 @@ export class LoginSignupComponent implements OnInit {
   }
 
   loginUser(){
-    let isUserExist = this.userArray.find((m:any)=>m.userName === this.loginUsersObj.userName && m.password === this.loginUsersObj.password);
-    if(isUserExist != undefined)
-    alert("user login successfully");
+let isUserExist;
+if (this.loginUsersObj && this.loginUsersObj.userName && this.loginUsersObj.password) {
+   isUserExist = this.userArray.find((m:any) => m.userName === this.loginUsersObj.userName && m.password === this.loginUsersObj.password);
+}
+    if(isUserExist){
+      alert("user login successfully");
+    }
     else
     alert("login with wrong credentials")
   }
